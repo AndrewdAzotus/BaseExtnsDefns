@@ -27,11 +27,11 @@ namespace Azotus
             return rc;
         }
 
-        public static void Populate(this xList fldData, Selector frmField, int chosenIdx = -1, bool useTitle = true, bool inclParmData = false)
+        public static void Populate(this xList fldData, Selector frmField, int chosenIdx = -1, bool useTitle = true, bool inclParmData = false, string Title = null)
         {
             int selIdx = chosenIdx;
             if (useTitle)
-                frmField.Items.Add(fldData.Title);
+                frmField.Items.Add(Title == null ? fldData.Title : Defns.LeftBrkt + Title + Defns.RghtBrkt);
 
             for (int Lp1 = 1; Lp1 <= fldData.MaxIdx; ++Lp1)
             {
